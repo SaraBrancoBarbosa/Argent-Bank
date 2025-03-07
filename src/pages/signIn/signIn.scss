@@ -1,50 +1,62 @@
 @import "../../index";
 
-.sign-in-content {
-    box-sizing: border-box;
-    background-color: white;
-    width: 300px;
-    margin: 0 auto;
-    margin-top: 3rem;
-    padding: 2rem;
+.sign-in-container {
+    padding-top: 48px;
+    min-height: calc(100dvh - 175px);
 
-    .sign-in-icon {
-        font-size: 5rem;
-    }
-
-    .input-wrapper {
-        display: flex;
-        flex-direction: column;
-        text-align: left;
-        margin-bottom: 1rem;
-
-        label {
+    .sign-in-content {
+        box-sizing: border-box;
+        background-color: white;
+        width: 300px;
+        margin: 0 auto;
+        //margin-top: 3rem;
+        padding: 2rem;
+    
+        .sign-in-icon {
+            font-size: 5rem;
+            // Pour correspondre à la maquette, ce serait plutôt ça (mais c'est moins joli) : 
+            // font-size: 14px
+        }
+    
+        .input-wrapper {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            margin-bottom: 1rem;
+    
+            label {
+                font-weight: bold;
+            }
+    
+            input {
+                padding: 5px;
+                font-size: 1.2rem;
+            }
+        }
+    
+        .input-remember {
+            display: flex;
+    
+            label {
+                margin-left: 0.25rem;
+            }
+        }
+    
+        .sign-in-button {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            font-size: 1.1rem;
             font-weight: bold;
+            margin-top: 1rem;
+            cursor: pointer;
+            border: solid $primary-color;
+            background-color: $primary-color;
+            color: $secondary-color;
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
-
-        input {
-            padding: 5px;
-            font-size: 1.2rem;
-        }
-    }
-
-    .input-remember {
-        display: flex;
-
-        label {
-            margin-left: 0.25rem;
-        }
-    }
-
-    .sign-in-button {
-        display: block;
-        width: 100%;
-        padding: 8px;
-        font-size: 1.1rem;
-        font-weight: bold;
-        margin-top: 1rem;
-        border-color: $primary-color;
-        background-color: $primary-color;
-        color: $secondary-color;
     }
 }

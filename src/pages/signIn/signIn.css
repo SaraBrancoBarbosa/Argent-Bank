@@ -28,134 +28,35 @@ a:hover {
 }
 
 .sr-only {
-  border: 0 !important;
-  clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
-  -webkit-clip-path: inset(50%) !important;
-  clip-path: inset(50%) !important; /* 2 */
-  height: 1px !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  padding: 0 !important;
-  position: absolute !important;
-  width: 1px !important;
-  white-space: nowrap !important; /* 3 */
-}
-
-.sign-in-button {
-  display: block;
-  width: 100%;
-  padding: 8px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  margin-top: 1rem;
-  border-color: #00bc77;
-  background-color: #00bc77;
-  color: #fff;
-}
-
-.account {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border: 1px solid black;
-  background-color: #fff;
-  width: 80%;
-  margin: 0 auto;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  padding: 1.5rem;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  text-align: left;
-  margin-bottom: 2rem;
-}
-
-.account-amount {
-  margin: 0;
-  font-size: 2.5rem;
-  font-weight: bold;
-}
-
-.account-amount-description {
-  margin: 0;
-}
-
-.account-title {
-  margin: 0;
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px); /* 1 */
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%); /* 2 */
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
   padding: 0;
-  font-size: 1rem;
-  font-weight: normal;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap; /* 3 */
 }
 
-.account-content-wrapper {
-  width: 100%;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+.sign-in-container {
+  padding-top: 48px;
+  min-height: calc(100dvh - 175px);
 }
-
-.edit-button {
-  border-color: #00bc77;
-  background-color: #00bc77;
-  color: #fff;
-  font-weight: bold;
-  padding: 10px;
-}
-
-.user-name {
-  color: #fff;
-  margin-bottom: 2rem;
-}
-
-.transaction-button {
-  display: block;
-  width: 100%;
-  padding: 8px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  margin-top: 1rem;
-  border-color: #00bc77;
-  background-color: #00bc77;
-  color: #fff;
-}
-
-@media (min-width: 720px) {
-  .account {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-  }
-  .account-content-wrapper.cta {
-    -webkit-box-flex: 0;
-        -ms-flex: 0;
-            flex: 0;
-  }
-  .transaction-button {
-    width: 200px;
-  }
-}
-.sign-in-content {
+.sign-in-container .sign-in-content {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   background-color: white;
   width: 300px;
   margin: 0 auto;
-  margin-top: 3rem;
   padding: 2rem;
 }
-.sign-in-content .sign-in-icon {
+.sign-in-container .sign-in-content .sign-in-icon {
   font-size: 5rem;
 }
-.sign-in-content .input-wrapper {
+.sign-in-container .sign-in-content .input-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -166,29 +67,33 @@ a:hover {
   text-align: left;
   margin-bottom: 1rem;
 }
-.sign-in-content .input-wrapper label {
+.sign-in-container .sign-in-content .input-wrapper label {
   font-weight: bold;
 }
-.sign-in-content .input-wrapper input {
+.sign-in-container .sign-in-content .input-wrapper input {
   padding: 5px;
   font-size: 1.2rem;
 }
-.sign-in-content .input-remember {
+.sign-in-container .sign-in-content .input-remember {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
-.sign-in-content .input-remember label {
+.sign-in-container .sign-in-content .input-remember label {
   margin-left: 0.25rem;
 }
-.sign-in-content .sign-in-button {
+.sign-in-container .sign-in-content .sign-in-button {
   display: block;
   width: 100%;
   padding: 8px;
   font-size: 1.1rem;
   font-weight: bold;
   margin-top: 1rem;
-  border-color: #00bc77;
+  cursor: pointer;
+  border: solid #00bc77;
   background-color: #00bc77;
   color: #fff;
+}
+.sign-in-container .sign-in-content .sign-in-button:hover {
+  text-decoration: underline;
 }/*# sourceMappingURL=signIn.css.map */
