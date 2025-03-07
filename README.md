@@ -16,7 +16,7 @@ Mais elle propose surtout un système de transactions efficace.
 - MongoDB
 
 ### Les étapes d'installation
-**Installation du _back-end_ :**
+**Installation du _back-end_ :** <br>
 Clônez tout d'abord le repo du _back-end_ :<br>
 `git clone https://github.com/OpenClassrooms-Student-Center/Project-10-Bank-API.git`
 
