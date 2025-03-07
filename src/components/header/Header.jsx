@@ -7,7 +7,7 @@ function Header() {
     
     return (
         <header className="header">
-            <Link className="header-logo" href="./index.html">
+            <Link to="/" className="header-logo">
                 <img
                     className="header-logo-image"
                     src={logo}
@@ -16,22 +16,22 @@ function Header() {
                 <h1 className="sr-only">Argent Bank</h1>
             </Link>
             <div>
-                <Link className="header-item" href="./sign-in.html">
-                    <i className="fa fa-user-circle"></i>
-                    Sign In
+                <Link to="/sign-in" className="header-item">
+                    <i className="header-item-icon fa fa-user-circle"></i>
+                    <p className="header-item-text">Sign In</p>
                 </Link>
             </div>
 
             {/* Quand on est connecté en tant qu'utilisateur :
             <div>
-                <a class="main-nav-item" href="./user.html">
-                    <i class="fa fa-user-circle"></i>
+                <Link to="/user" className="header-item">
+                    <i className="fa fa-user-circle"></i>
                     Tony
-                </a>
-                <a class="main-nav-item" href="./index.html">
-                    <i class="fa fa-sign-out"></i>
-                    Sign Out
-                </a>
+                </Link>
+                <Link to="/" className="header-item">
+                    <i className="header-item-icon fa fa-sign-out"></i>
+                    <p className="header-item-text">Sign Out</p>
+                </Link>
             </div> */}
         </header>
     )

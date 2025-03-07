@@ -26,12 +26,18 @@
     }
         
     .header-item {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding-right: 0.5rem;
         text-decoration: none;
-        margin-right: 0.5rem;
-    }
-    
-    .header-item:hover {
-        text-decoration: underline;
-    }
-          
+
+        .header-item-icon:hover {
+            text-decoration: none;
+        }
+
+        .header-item-text:hover {
+            text-decoration: underline;
+        }        
+    }    
 }
