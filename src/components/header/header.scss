@@ -1,0 +1,37 @@
+@import "../../index";
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+
+    a {
+        font-weight: bold;
+        color: $link-color;
+    }
+      
+    a.router-link-exact-active {
+        color: $link-active-color;
+    }
+
+    .header-logo {
+        display: flex;
+        align-items: center;
+
+        .header-logo-image {
+            max-width: 100%;
+            width: 200px;
+        }
+    }
+        
+    .header-item {
+        text-decoration: none;
+        margin-right: 0.5rem;
+    }
+    
+    .header-item:hover {
+        text-decoration: underline;
+    }
+          
+}
