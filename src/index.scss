@@ -53,3 +53,19 @@ $link-active-color: #42b983;
   width: 1px;
   white-space: nowrap; /* 3 */
 }
+
+.button {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: solid $primary-color;
+  background-color: $primary-color;
+  color: $secondary-color;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
