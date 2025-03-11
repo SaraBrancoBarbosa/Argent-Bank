@@ -72,6 +72,15 @@ a:hover {
   max-width: 100%;
   width: 200px;
 }
+.header .sign-out {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
 .header .header-item {
   display: -webkit-box;
   display: -ms-flexbox;

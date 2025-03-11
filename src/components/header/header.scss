@@ -24,7 +24,12 @@
             width: 200px;
         }
     }
-        
+    
+    .sign-out {
+        display: flex;
+        flex-direction: row;
+    }
+    
     .header-item {
         display: flex;
         align-items: center;
