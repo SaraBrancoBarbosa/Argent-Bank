@@ -41,88 +41,141 @@ a:hover {
   white-space: nowrap; /* 3 */
 }
 
-.user-name {
-  color: #fff;
-  margin-bottom: 2rem;
-}
-.user-name .edit-button {
-  border-color: #00bc77;
+.button {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: solid #00bc77;
   background-color: #00bc77;
   color: #fff;
-  font-weight: bold;
-  padding: 10px;
+  cursor: pointer;
+}
+.button:hover {
+  text-decoration: underline;
 }
 
-.account {
+.user-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-height: calc(100dvh - 215px);
+  padding: 40px 0;
+  gap: 40px;
+}
+.user-container .user-name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 20px;
+}
+.user-container .user-name h1 {
+  color: #fff;
+  margin: 0;
+}
+.user-container .user-name .buttons-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 20px;
+}
+.user-container .user-name .buttons-container .button {
+  padding: 10px;
+  width: 80px;
+}
+.user-container .accounts-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 35px;
+}
+.user-container .accounts-container .account {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border: 1px solid black;
-  background-color: #fff;
-  width: 80%;
-  margin: 0 auto;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  padding: 1.5rem;
+  gap: 15px;
+  text-align: left;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  text-align: left;
-  margin-bottom: 2rem;
+  width: 100%;
+  background-color: #fff;
+  padding: 1.5rem;
+  border: 1px solid black;
 }
 @media (min-width: 720px) {
-  .account {
+  .user-container .accounts-container .account {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+    width: 80%;
   }
 }
-.account .account-content-wrapper {
+.user-container .accounts-container .account .account-content-wrapper {
   width: 100%;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
 }
-.account .account-content-wrapper .account-title {
+.user-container .accounts-container .account .account-content-wrapper .account-title {
   margin: 0;
   padding: 0;
   font-size: 1rem;
   font-weight: normal;
 }
-.account .account-content-wrapper .account-amount {
+.user-container .accounts-container .account .account-content-wrapper .account-amount {
   margin: 0;
   font-size: 2.5rem;
   font-weight: bold;
 }
-.account .account-content-wrapper .account-amount-description {
+.user-container .accounts-container .account .account-content-wrapper .account-amount-description {
   margin: 0;
 }
-.account .transaction-button {
-  display: block;
+.user-container .accounts-container .account .button {
   width: 100%;
-  padding: 8px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  margin-top: 1rem;
-  border-color: #00bc77;
-  background-color: #00bc77;
-  color: #fff;
 }
 @media (min-width: 720px) {
-  .account .account-content-wrapper.cta {
+  .user-container .accounts-container .account .account-content-wrapper.cta {
     -webkit-box-flex: 0;
         -ms-flex: 0;
             flex: 0;
   }
-  .account .transaction-button {
-    width: 200px;
+  .user-container .accounts-container .account .button {
+    width: 250px;
   }
 }/*# sourceMappingURL=user.css.map */
