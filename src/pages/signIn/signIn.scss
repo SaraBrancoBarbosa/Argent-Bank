@@ -9,13 +9,10 @@
         background-color: white;
         width: 300px;
         margin: 0 auto;
-        //margin-top: 3rem;
         padding: 2rem;
     
         .sign-in-icon {
             font-size: 5rem;
-            // Pour correspondre à la maquette, ce serait plutôt ça (mais c'est moins joli) : 
-            // font-size: 14px
         }
     
         .input-wrapper {
@@ -42,21 +39,8 @@
             }
         }
     
-        .sign-in-button {
-            display: block;
-            width: 100%;
-            padding: 8px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            margin-top: 1rem;
-            cursor: pointer;
-            border: solid $primary-color;
-            background-color: $primary-color;
-            color: $secondary-color;
-
-            &:hover {
-                text-decoration: underline;
-            }
+        .button {
+            margin-top: 1rem;  
         }
     }
 }

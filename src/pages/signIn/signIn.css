@@ -41,6 +41,21 @@ a:hover {
   white-space: nowrap; /* 3 */
 }
 
+.button {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: solid #00bc77;
+  background-color: #00bc77;
+  color: #fff;
+  cursor: pointer;
+}
+.button:hover {
+  text-decoration: underline;
+}
+
 .sign-in-container {
   padding-top: 48px;
   min-height: calc(100dvh - 175px);
@@ -82,18 +97,6 @@ a:hover {
 .sign-in-container .sign-in-content .input-remember label {
   margin-left: 0.25rem;
 }
-.sign-in-container .sign-in-content .sign-in-button {
-  display: block;
-  width: 100%;
-  padding: 8px;
-  font-size: 1.1rem;
-  font-weight: bold;
+.sign-in-container .sign-in-content .button {
   margin-top: 1rem;
-  cursor: pointer;
-  border: solid #00bc77;
-  background-color: #00bc77;
-  color: #fff;
-}
-.sign-in-container .sign-in-content .sign-in-button:hover {
-  text-decoration: underline;
 }/*# sourceMappingURL=signIn.css.map */
