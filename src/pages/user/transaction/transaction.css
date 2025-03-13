@@ -68,7 +68,15 @@ a:hover {
   padding-bottom: 40px;
   gap: 40px;
 }
+.container .button {
+  display: none;
+}
 .container .account {
+  text-align: center;
+  height: 120px;
+  width: 100%;
+}
+.container .account .account-content-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -76,33 +84,7 @@ a:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   gap: 5px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  width: 100%;
-  background-color: #fff;
-  padding: 1.5rem;
-  border: 1px solid black;
-}
-.container .account .account-title {
-  margin: 0;
-  padding: 0;
-  font-size: 1rem;
-  font-weight: normal;
-}
-.container .account .account-amount {
-  margin: 0;
-  font-size: 2.5rem;
-  font-weight: bold;
-}
-.container .account .account-amount-description {
-  margin: 0;
 }
 .container .transactions-container {
   display: -webkit-box;
@@ -115,37 +97,17 @@ a:hover {
   margin: 0 60px;
 }
 .container .transactions-container .titles-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  padding-left: 50px;
+  display: grid;
+  grid-template-columns: 5% 8% 1% 8%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-left: 90px;
+  padding-right: 30px;
 }
 .container .transactions-container .titles-container .title {
-  -webkit-box-flex: 25px;
-      -ms-flex: 25px;
-          flex: 25px;
   margin: 0;
   padding-bottom: 5px;
   color: #fff;
-}
-.container .transactions-container .transaction {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 60px;
-  width: 100%;
-  background-color: #fff;
-  border: 1px solid black;
-}
-.container .transactions-container .transaction .transaction-icon {
-  width: 55px;
-  cursor: pointer;
-}
-.container .transactions-container .transaction .text {
-  -webkit-box-flex: 25%;
-      -ms-flex: 25%;
-          flex: 25%;
+  text-transform: uppercase;
 }/*# sourceMappingURL=transaction.css.map */
