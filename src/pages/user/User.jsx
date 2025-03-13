@@ -1,5 +1,5 @@
-import { Link } from "react-router"
 import "./user.css"
+import AccountCard from "../../components/account-card/AccountCard"
 
 function UserPage() {
   return (
@@ -20,44 +20,25 @@ function UserPage() {
       <h2 className="sr-only">Accounts</h2>
 
       <div className="accounts-container">
+
+        <AccountCard
+          title="Argent Bank Checking (x8349)"
+          amount="2,082.79"
+          description="Available Balance"
+        />
+
+        <AccountCard
+          title="Argent Bank Savings (x6712)"
+          amount="10,928.42"
+          description="Available Balance"
+        />
+
+        <AccountCard
+          title="Argent Bank Credit Card (x8349)"
+          amount="184.30"
+          description="Current Balance"
+        />
         
-        {/* Mettre le composant Card une fois les données fetchées */}
-
-        <section className="account">
-          <div className="account-content-wrapper">
-            <h3 className="account-title">Argent Bank Checking (x8349)</h3>
-            <p className="account-amount">$2,082.79</p>
-            <p className="account-amount-description">Available Balance</p>
-          </div>
-          <div className="account-content-wrapper cta">
-            {/* Exemple de bouton pour aller à la page "transaction" */}
-            <Link to="transaction" className="header-logo">
-              <button className="button">View transactions</button>
-            </Link>
-          </div>
-        </section>
-
-        <section className="account">
-          <div className="account-content-wrapper">
-            <h3 className="account-title">Argent Bank Savings (x6712)</h3>
-            <p className="account-amount">$10,928.42</p>
-            <p className="account-amount-description">Available Balance</p>
-          </div>
-          <div className="account-content-wrapper cta">
-            <button className="button">View transactions</button>
-          </div>
-        </section>
-
-        <section className="account">
-          <div className="account-content-wrapper">
-            <h3 className="account-title">Argent Bank Credit Card (x8349)</h3>
-            <p className="account-amount">$184.30</p>
-            <p className="account-amount-description">Current Balance</p>
-          </div>
-          <div className="account-content-wrapper cta">
-            <button className="button">View transactions</button>
-          </div>
-        </section>
       </div>
 
     </div>
