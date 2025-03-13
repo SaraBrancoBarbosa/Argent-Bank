@@ -1,0 +1,140 @@
+/**** Bases ****/
+* {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+}
+
+body {
+  width: 100%;
+  min-height: 100dvh;
+  text-align: center;
+  margin: 0 auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/***** Variables *****/
+.bg-dark {
+  background-color: #12002b;
+}
+
+.sr-only {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px); /* 1 */
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%); /* 2 */
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap; /* 3 */
+}
+
+.button {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: solid #00bc77;
+  background-color: #00bc77;
+  color: #fff;
+  cursor: pointer;
+}
+.button:hover {
+  text-decoration: underline;
+}
+
+.dropdown {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 2px;
+}
+.dropdown .dropdown-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 60px;
+  background-color: #fff;
+  position: relative;
+  padding-left: 60px;
+  padding-right: 50px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.dropdown .dropdown-content .dropdown-icon-down {
+  width: 55px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 0.35s ease;
+  transition: -webkit-transform 0.35s ease;
+  transition: transform 0.35s ease;
+  transition: transform 0.35s ease, -webkit-transform 0.35s ease;
+  position: absolute;
+  left: 0;
+}
+.dropdown .dropdown-content .dropdown-icon-up {
+  width: 55px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  -webkit-transform: rotate(-180deg);
+          transform: rotate(-180deg);
+  -webkit-transition: -webkit-transform 0.35s ease;
+  transition: -webkit-transform 0.35s ease;
+  transition: transform 0.35s ease;
+  transition: transform 0.35s ease, -webkit-transform 0.35s ease;
+  position: absolute;
+  left: 0;
+}
+.dropdown .text-parent {
+  height: 0px;
+  overflow: hidden;
+  -webkit-transition: height ease 0.35s;
+  transition: height ease 0.35s;
+  background-color: #fff;
+  z-index: 1;
+  padding-left: 60px;
+}
+.dropdown .text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 20px;
+  padding-bottom: 20px;
+  text-align: left;
+  -webkit-transition: -webkit-transform 0.35s ease;
+  transition: -webkit-transform 0.35s ease;
+  transition: transform 0.35s ease;
+  transition: transform 0.35s ease, -webkit-transform 0.35s ease;
+}
+.dropdown .text .text-children {
+  margin: 0;
+}
+.dropdown .text .text-children .text-children-icon {
+  font-size: 1.2rem;
+  padding-left: 5px;
+}/*# sourceMappingURL=transactionDropdown.css.map */

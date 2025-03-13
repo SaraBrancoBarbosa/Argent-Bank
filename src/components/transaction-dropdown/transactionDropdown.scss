@@ -1,0 +1,72 @@
+@import "../../index";
+
+.dropdown {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2px;
+ 
+    .dropdown-content {
+        display: flex;
+        align-items: center;
+        height: 60px;
+        //width: 100%;
+        background-color: $secondary-color;
+
+        position: relative;
+        padding-left: 60px;
+        padding-right: 50px;
+        justify-content: space-between;
+    
+        .dropdown-icon-down {
+            width: 55px;
+            font-size: 1.6rem;
+            cursor: pointer;
+            transition: transform 0.35s ease;
+
+            position: absolute;
+            left: 0;
+        }
+
+        .dropdown-icon-up {
+            width: 55px;
+            font-size: 1.6rem;
+            cursor: pointer;
+            transform: rotate(-180deg);
+            transition: transform 0.35s ease;
+
+            position: absolute;
+            left: 0;
+        }
+    
+        .dropdown-text {
+            //flex: 25%;
+        }
+    }
+
+    .text-parent {
+        height: 0px;
+        overflow: hidden;
+        transition: height ease 0.35s;
+        background-color: $secondary-color;
+        z-index: 1;
+        padding-left: 60px;
+    }
+
+    .text {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding-bottom: 20px;
+        text-align: left;
+        transition: transform 0.35s ease;
+        
+        .text-children {
+            margin: 0;
+
+            .text-children-icon {
+                font-size: 1.2rem;
+                padding-left: 5px;
+            }
+        }
+    }
+}
