@@ -42,16 +42,46 @@ a:hover {
 }
 
 .button {
-  display: block;
+  display: inline-block;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
   width: 100%;
-  padding: 8px;
   font-size: 1.1rem;
   font-weight: bold;
-  border: solid #00bc77;
-  background-color: #00bc77;
+  padding: 10px;
+  border: none;
   color: #fff;
+  background-color: #00bc77;
   cursor: pointer;
+}
+.button:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00bc77;
+  z-index: -2;
+}
+.button:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #007047;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  z-index: -1;
 }
 .button:hover {
   text-decoration: underline;
+}
+.button:hover:before {
+  width: 100%;
 }/*# sourceMappingURL=index.css.map */

@@ -35,7 +35,7 @@ $bg-color-light: white;
 $link-color: #2c3e50;
 $link-active-color: #42b983;
   
-// Font utilisé dans sign-in et user
+// Background used in Login et Profile pages
 .bg-dark {
   background-color: $bg-color-dark;
 }
@@ -54,18 +54,50 @@ $link-active-color: #42b983;
   white-space: nowrap; /* 3 */
 }
 
-.button {
-  display: block;
+.button {  
+  display: inline-block;
+  transition: all .3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
   width: 100%;
-  padding: 8px;
+  
   font-size: 1.1rem;
   font-weight: bold;
-  border: solid $primary-color;
-  background-color: $primary-color;
+  padding: 10px;
+  border: none;
   color: $secondary-color;
+  background-color: $primary-color;
   cursor: pointer;
+
+  &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $primary-color;
+      z-index: -2;
+  }
+
+  &:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 100%;
+      background-color: darken($primary-color, 15%);
+      transition: all .3s;
+      z-index: -1;
+  }
 
   &:hover {
     text-decoration: underline;
+
+      &:before {
+          width: 100%;
+      }
   }
 }
