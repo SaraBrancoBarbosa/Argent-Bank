@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom"
 
-const UserLayout = () => {
+const ProfileLayout = () => {
     return (
         <>
             <Outlet />
@@ -8,4 +8,4 @@ const UserLayout = () => {
     )
 }
   
-  export default UserLayout
+  export default ProfileLayout

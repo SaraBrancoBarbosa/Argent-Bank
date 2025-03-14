@@ -13,7 +13,7 @@ function Header() {
     const handleSignOut = (e) => {
         e.preventDefault()
         window.localStorage.clear()
-        window.location.href="/sign-in"
+        window.location.href="/login"
         setIsLoggedIn(false)
     }
 
@@ -22,7 +22,7 @@ function Header() {
         if (isLoggedIn === true) {
             return (
                 <div className="sign-out">
-                    <Link to="/user" className="header-item">
+                    <Link to="/profile" className="header-item">
                         <i className="fa fa-user-circle"></i>
                         <p className="header-item-text">Tony</p>
                     </Link>
@@ -37,7 +37,7 @@ function Header() {
         // Quand on n'est pas connecté :
         return (
             <div>
-                <Link to="/sign-in" className="header-item">
+                <Link to="/login" className="header-item">
                     <i className="header-item-icon fa fa-user-circle"></i>
                     <p className="header-item-text">Sign In</p>
                 </Link>

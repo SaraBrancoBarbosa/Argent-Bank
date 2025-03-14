@@ -1,7 +1,7 @@
 import { useState } from "react"
-import "./signIn.css"
+import "./login.css"
 
-function SignInPage() {
+function LoginPage() {
   
   // Avec useState, on stocke les valeurs des champs username, password et rememberMe
   const [username, setUsername] = useState("")
@@ -69,4 +69,4 @@ function SignInPage() {
   )
 }
 
-export default SignInPage
+export default LoginPage

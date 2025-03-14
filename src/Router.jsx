@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import Layout from "./layouts/Layout"
 import Homepage from "./pages/homepage/Homepage"
-import SignInPage from "./pages/signIn/SignIn"
-import UserPage from "./pages/user/User"
+import LoginPage from "./pages/login/Login"
+import ProfileLayout from "./pages/user/layouts/ProfileLayout"
+import ProfilePage from "./pages/user/Profile"
 import TransactionPage from "./pages/user/transaction/Transaction"
-import UserLayout from "./pages/user/layouts/UserLayout"
 
 function AppRouter() {
   return (
@@ -12,10 +12,10 @@ function AppRouter() {
         <Routes>
             <Route path="/" element={<Layout />}>
                 <Route index element={<Homepage />} />
-                <Route path="sign-in" element={<SignInPage />} />
+                <Route path="login" element={<LoginPage />} />
 
-                <Route path="user" element={<UserLayout />}>
-                  <Route index element={<UserPage />} />
+                <Route path="profile" element={<ProfileLayout />}>
+                  <Route index element={<ProfilePage />} />
                   <Route path="transaction" element={<TransactionPage />} /> 
                 </Route>
 

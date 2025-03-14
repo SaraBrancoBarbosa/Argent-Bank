@@ -1,7 +1,7 @@
-import "./user.css"
+import "./profile.css"
 import AccountCard from "../../components/account-card/AccountCard"
 
-function UserPage() {
+function ProfilePage() {
   return (
     <div className="user-container bg-dark">
 
@@ -11,10 +11,14 @@ function UserPage() {
           {/* Prénom et nom fetchés plus tard : */}
           Tony Jarvis!
         </h1>
+
+        <button className="button">Edit name</button>
+
+        {/* Les boutons à faire apparaître avec l'édition :
         <div className="buttons-container">
           <button className="button">Save</button>
           <button className="button">Cancel</button>
-        </div>
+        </div> */}
       </div>
 
       <h2 className="sr-only">Accounts</h2>
@@ -45,6 +49,6 @@ function UserPage() {
   )
 }
 
-export default UserPage
+export default ProfilePage
 
 
