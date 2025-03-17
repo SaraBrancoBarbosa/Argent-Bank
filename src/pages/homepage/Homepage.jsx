@@ -7,7 +7,7 @@ const iconSecurity = "assets/img/icon-security.png"
 
 function Homepage() {
   return (
-    <>
+    <div className="homepage-container">
       <div className="hero" style={{backgroundImage: `url(${heroBanner})`}}>
         <section className="hero-content">
           <h2 className="sr-only">Promoted Content</h2>
@@ -56,7 +56,7 @@ function Homepage() {
           </p>
         </div>
       </section>
-    </>
+    </div>
   )
 }
 

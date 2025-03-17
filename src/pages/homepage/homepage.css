@@ -42,17 +42,17 @@ a:hover {
 }
 
 .button {
-  width: 100%;
   display: inline-block;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   position: relative;
   overflow: hidden;
   z-index: 1;
+  width: 100%;
   font-size: 1.1rem;
   font-weight: bold;
-  padding: 8px;
-  border: solid #00bc77;
+  padding: 10px;
+  border: none;
   color: #fff;
   background-color: #00bc77;
   cursor: pointer;
@@ -86,7 +86,17 @@ a:hover {
   width: 100%;
 }
 
-.hero {
+.homepage-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-height: calc(100dvh - 135px);
+}
+.homepage-container .hero {
   background-image: url("../img/bank-tree.jpeg");
   background-position: 0 -50px;
   background-size: cover;
@@ -95,12 +105,12 @@ a:hover {
   position: relative;
 }
 @media (min-width: 920px) {
-  .hero {
+  .homepage-container .hero {
     height: 400px;
     background-position: 0% 33%;
   }
 }
-.hero .hero-content {
+.homepage-container .hero .hero-content {
   position: relative;
   top: 2rem;
   width: 200px;
@@ -110,7 +120,7 @@ a:hover {
   margin: 0 auto;
 }
 @media (min-width: 920px) {
-  .hero .hero-content {
+  .homepage-container .hero .hero-content {
     position: absolute;
     top: 50px;
     right: 50px;
@@ -118,27 +128,26 @@ a:hover {
     margin: 2rem;
   }
 }
-.hero .hero-content .subtitle {
+.homepage-container .hero .hero-content .subtitle {
   font-weight: bold;
   font-size: 1rem;
   margin: 0;
 }
 @media (min-width: 920px) {
-  .hero .hero-content .subtitle {
+  .homepage-container .hero .hero-content .subtitle {
     font-size: 1.5rem;
   }
 }
-.hero .hero-content .text {
+.homepage-container .hero .hero-content .text {
   margin-bottom: 0;
   font-size: 0.9rem;
 }
 @media (min-width: 920px) {
-  .hero .hero-content .text {
+  .homepage-container .hero .hero-content .text {
     font-size: 1.2rem;
   }
 }
-
-.features {
+.homepage-container .features {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -148,26 +157,26 @@ a:hover {
           flex-direction: column;
 }
 @media (min-width: 920px) {
-  .features {
+  .homepage-container .features {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
   }
 }
-.features .feature-item {
+.homepage-container .features .feature-item {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
   padding: 2.5rem;
 }
-.features .feature-item .feature-icon {
+.homepage-container .features .feature-item .feature-icon {
   width: 100px;
   border: 10px solid #00bc77;
   border-radius: 50%;
   padding: 1rem;
 }
-.features .feature-item .feature-item-title {
+.homepage-container .features .feature-item .feature-item-title {
   color: #222;
   font-size: 1.25rem;
   font-weight: bold;
