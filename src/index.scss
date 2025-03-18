@@ -34,11 +34,14 @@ $bg-color-dark: #12002b;
 $bg-color-light: white;
 $link-color: #2c3e50;
 $link-active-color: #42b983;
-  
-// Background used in Login et Profile pages
+
+/***** Background used in Login et Profile pages *****/
+
 .bg-dark {
   background-color: $bg-color-dark;
 }
+
+/***** Screen readers only *****/
 
 .sr-only {
   border: 0;
@@ -53,6 +56,8 @@ $link-active-color: #42b983;
   width: 1px;
   white-space: nowrap; /* 3 */
 }
+
+/***** Button *****/
 
 .button {  
   display: inline-block;
@@ -99,5 +104,12 @@ $link-active-color: #42b983;
       &:before {
           width: 100%;
       }
+  }
+}
+
+/***** Breakpoints for responsive design *****/
+@mixin media-phone {
+  @media screen and (min-width: 720px) {
+      @content;
   }
 }

@@ -23,10 +23,12 @@ a:hover {
 }
 
 /***** Variables *****/
+/***** Background used in Login et Profile pages *****/
 .bg-dark {
   background-color: #12002b;
 }
 
+/***** Screen readers only *****/
 .sr-only {
   border: 0;
   clip: rect(1px, 1px, 1px, 1px); /* 1 */
@@ -41,6 +43,7 @@ a:hover {
   white-space: nowrap; /* 3 */
 }
 
+/***** Button *****/
 .button {
   display: inline-block;
   -webkit-transition: all 0.3s;
@@ -86,6 +89,7 @@ a:hover {
   width: 100%;
 }
 
+/***** Breakpoints for responsive design *****/
 .homepage-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -104,7 +108,7 @@ a:hover {
   height: 300px;
   position: relative;
 }
-@media (min-width: 920px) {
+@media screen and (min-width: 720px) {
   .homepage-container .hero {
     height: 400px;
     background-position: 0% 33%;
@@ -119,7 +123,7 @@ a:hover {
   text-align: left;
   margin: 0 auto;
 }
-@media (min-width: 920px) {
+@media screen and (min-width: 720px) {
   .homepage-container .hero .hero-content {
     position: absolute;
     top: 50px;
@@ -133,7 +137,7 @@ a:hover {
   font-size: 1rem;
   margin: 0;
 }
-@media (min-width: 920px) {
+@media screen and (min-width: 720px) {
   .homepage-container .hero .hero-content .subtitle {
     font-size: 1.5rem;
   }
@@ -142,7 +146,7 @@ a:hover {
   margin-bottom: 0;
   font-size: 0.9rem;
 }
-@media (min-width: 920px) {
+@media screen and (min-width: 720px) {
   .homepage-container .hero .hero-content .text {
     font-size: 1.2rem;
   }
@@ -156,7 +160,7 @@ a:hover {
       -ms-flex-direction: column;
           flex-direction: column;
 }
-@media (min-width: 920px) {
+@media screen and (min-width: 720px) {
   .homepage-container .features {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;

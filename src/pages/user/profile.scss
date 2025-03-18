@@ -54,7 +54,7 @@
             padding: 1.5rem;
             border: 1px solid black;
         
-            @media (min-width: 720px) {
+            @include media-phone {
                 flex-direction: row;
                 width: 80%;
             }
@@ -85,7 +85,7 @@
                 width: 100%;
             }
         
-            @media (min-width: 720px) { 
+            @include media-phone { 
                 .account-content-wrapper.cta {
                   flex: 0;
                 }

@@ -23,10 +23,12 @@ a:hover {
 }
 
 /***** Variables *****/
+/***** Background used in Login et Profile pages *****/
 .bg-dark {
   background-color: #12002b;
 }
 
+/***** Screen readers only *****/
 .sr-only {
   border: 0;
   clip: rect(1px, 1px, 1px, 1px); /* 1 */
@@ -41,6 +43,7 @@ a:hover {
   white-space: nowrap; /* 3 */
 }
 
+/***** Button *****/
 .button {
   display: inline-block;
   -webkit-transition: all 0.3s;
@@ -86,6 +89,7 @@ a:hover {
   width: 100%;
 }
 
+/***** Breakpoints for responsive design *****/
 .container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -124,16 +128,26 @@ a:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin: 0 60px;
+  margin: 0 30px;
+}
+@media screen and (min-width: 720px) {
+  .container .transactions-container {
+    margin: 0 60px;
+  }
 }
 .container .transactions-container .titles-container {
-  display: grid;
-  grid-template-columns: 5% 8% 1% 8%;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  padding-left: 90px;
-  padding-right: 30px;
+  display: none;
+}
+@media screen and (min-width: 720px) {
+  .container .transactions-container .titles-container {
+    display: grid;
+    grid-template-columns: 5% 8% 1% 8%;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding-left: 90px;
+    padding-right: 30px;
+  }
 }
 .container .transactions-container .titles-container .title {
   margin: 0;

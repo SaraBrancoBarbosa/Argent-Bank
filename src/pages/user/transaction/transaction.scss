@@ -26,14 +26,22 @@
     .transactions-container {
         display: flex;
         flex-direction: column;
-        margin: 0 60px;
+        margin: 0 30px;
+
+        @include media-phone {
+            margin: 0 60px;
+        }
 
         .titles-container {
-            display: grid;
-            grid-template-columns: 5% 8% 1% 8%;
-            justify-content: space-between;
-            padding-left: 90px;
-            padding-right: 30px;
+            display: none;
+            
+            @include media-phone {
+                display: grid;
+                grid-template-columns: 5% 8% 1% 8%;
+                justify-content: space-between;
+                padding-left: 90px;
+                padding-right: 30px;
+            }
             
             .title {
                 //flex: 25px;

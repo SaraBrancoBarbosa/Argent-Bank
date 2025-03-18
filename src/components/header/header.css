@@ -23,10 +23,12 @@ a:hover {
 }
 
 /***** Variables *****/
+/***** Background used in Login et Profile pages *****/
 .bg-dark {
   background-color: #12002b;
 }
 
+/***** Screen readers only *****/
 .sr-only {
   border: 0;
   clip: rect(1px, 1px, 1px, 1px); /* 1 */
@@ -41,6 +43,7 @@ a:hover {
   white-space: nowrap; /* 3 */
 }
 
+/***** Button *****/
 .button {
   display: inline-block;
   -webkit-transition: all 0.3s;
@@ -86,6 +89,7 @@ a:hover {
   width: 100%;
 }
 
+/***** Breakpoints for responsive design *****/
 .header {
   display: -webkit-box;
   display: -ms-flexbox;
