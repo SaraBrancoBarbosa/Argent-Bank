@@ -1,24 +1,72 @@
-import "./profile.css"
 import AccountCard from "../../components/account-card/AccountCard"
+import { useDispatch, useSelector } from "react-redux"
+import { cancelEdit, setEditing, setUserData } from "../../redux/profileSlice"
+import "./profile.css"
 
 function ProfilePage() {
+
+  const { firstName, lastName, isEditing } = useSelector((state) => state.profile)
+  const dispatch = useDispatch()
+
+  // Pour sauvegarder les changements (bouton "save")
+  const handleSave = () => {
+     // On sauvegarde et on quitte le mode d'édition
+    dispatch(setEditing(false))
+  }
+
+  // Pour annuler les modifications (bouton "cancel")
+  const handleCancel = () => {
+    dispatch(cancelEdit())
+  }
+
   return (
     <div className="user-container bg-dark">
 
       <div className="user-name">
         <h1>
           Welcome back<br />
-          {/* Prénom et nom fetchés plus tard : */}
-          Tony Jarvis!
+
+          {/* On fait appararaître les inputs à modifier lorsqu'on édite */}
+          {isEditing ? (
+            <>
+              <input
+                type="text"
+                value={firstName}
+                onChange={(e) => dispatch(setUserData({ firstName: e.target.value, lastName }))} 
+              />
+              <input
+                type="text"
+                value={lastName}
+                onChange={(e) => dispatch(setUserData({ firstName, lastName: e.target.value }))} 
+              />
+            </>
+          ) : (
+            <>
+              {/* Sinon on a le prénom et le nom normalement */}
+              {firstName} {lastName}
+            </>
+          )}
         </h1>
 
-        <button className="button">Edit name</button>
+        {/* Le bouton s'affiche uniquement lorsqu'on n'est pas en mode édition */}
+        {!isEditing && (
+          <button className="button" onClick={() => dispatch(setEditing(true))}>
+            Edit name
+          </button>
+        )}
 
-        {/* Les boutons à faire apparaître avec l'édition :
-        <div className="buttons-container">
-          <button className="button">Save</button>
-          <button className="button">Cancel</button>
-        </div> */}
+        {/* Lorsqu'on édite les prénom/nom, les deux boutons Save et Cancel apparaissent */}
+        {isEditing && (
+          <div className="buttons-container">
+            <button className="button" onClick={handleSave}>
+              Save
+            </button>
+            <button className="button" onClick={handleCancel}>
+              Cancel
+            </button>
+          </div>
+        )}
+
       </div>
 
       <h2 className="sr-only">Accounts</h2>
