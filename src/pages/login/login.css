@@ -133,4 +133,21 @@ a:hover {
 }
 .sign-in-container .sign-in-content .button {
   margin-top: 1rem;
+}
+.sign-in-container .sign-in-content .alert {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #e73131;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: bold;
 }/*# sourceMappingURL=login.css.map */
