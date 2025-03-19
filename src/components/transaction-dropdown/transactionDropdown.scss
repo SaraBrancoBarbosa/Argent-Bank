@@ -7,15 +7,24 @@
  
     .dropdown-content {
         display: flex;
-        align-items: center;
-        height: 60px;
-        //width: 100%;
+        flex-direction: column;
+        align-items: start;
         background-color: $secondary-color;
-
         position: relative;
         padding-left: 60px;
-        padding-right: 50px;
-        justify-content: space-between;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        gap: 10px;
+        
+        @include media-phone {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+            padding-right: 50px;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
     
         .dropdown-icon-down {
             width: 55px;
@@ -25,6 +34,11 @@
 
             position: absolute;
             left: 0;
+            top: 43px;
+            
+            @include media-phone {
+                top: 19px;
+            }
         }
 
         .dropdown-icon-up {
@@ -36,13 +50,17 @@
 
             position: absolute;
             left: 0;
+            top: 43px;
+            
+            @include media-phone {
+                top: 19px;
+            }
         }
     
-        /*
         .dropdown-text {
-            flex: 25%;
+            margin: 0;
         }
-        */
+        
     }
 
     .text-parent {
@@ -57,17 +75,45 @@
     .text {
         display: flex;
         flex-direction: column;
-        gap: 20px;
-        padding-bottom: 20px;
+        gap: 10px;
+        padding-bottom: 10px;
         text-align: left;
         transition: transform 0.35s ease;
+
+        @include media-phone {
+            padding-top: 0;
+            padding-bottom: 20px;
+            gap: 20px;
+        }
         
         .text-children {
             margin: 0;
+            display: flex;
+
+            select {
+                height: 18px;
+                margin-left: 5px;
+                background-color: $secondary-color;
+                border: solid 2px $primary-color;
+            }
+
+            form {
+                display: flex;
+                margin-left: 5px;
+                height: 18px;
+
+                .button {
+                    display: flex;
+                    align-items: center;
+                    font-size: 1rem;
+                    padding: 0 4px;
+                }
+            }
 
             .text-children-icon {
                 font-size: 1.2rem;
                 padding-left: 5px;
+                cursor: pointer;
             }
         }
     }

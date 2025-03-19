@@ -1,8 +1,10 @@
 import PropTypes from "prop-types"
 import { useEffect, useRef, useState } from "react"
 import "./transactionDropdown.css"
+import NoteInput from "../note-input/NoteInput"
+import SelectDropdown from "../select-dropdown/SelectDropdown"
 
-function TransactionDropdown({date, description, amount, balance, type, category, note}) {
+function TransactionDropdown({ date, description, amount, balance, type, category, categoryId, note, noteId }) {
 
   // To manage the dropdown display
   const [visible, setVisible] = useState(false)
@@ -12,6 +14,26 @@ function TransactionDropdown({date, description, amount, balance, type, category
   const toggle = () => {
     //return !current
     setVisible(current => !current)
+  }
+
+  // Pour éditer la catégorie
+  const [modifyCategory, setModifyCategory] = useState(false)
+  const [currentCategory, setCurrentCategory] = useState(category)
+
+  // Pour gérer la fin de l'édition de la catégorie (on "ferme" le dropdown et l'icône crayon revient)
+  const handleCategoryChange = (newCategory) => {
+    setCurrentCategory(newCategory)
+    setModifyCategory(false)
+  }
+
+  // Pour éditer la note
+  const [modifyNote, setModifyNote] = useState(false)
+  // Avec l'état local, on suit la note (actuelle)
+  const [currentNote, setCurrentNote] = useState(note)
+
+  const handleSaveNote = (newNote) => {
+    setCurrentNote(newNote)
+    setModifyNote(false)
   }
 
   useEffect (() => {
@@ -48,12 +70,45 @@ function TransactionDropdown({date, description, amount, balance, type, category
           style={{ transform: visible ? "translateY(0)" : "translateY(-100%)" }}
         >
           <p className="text-children">Transaction Type: {type}</p>
-          <p className="text-children">Category: {category} 
-            <i className="fa fa-solid fa-pencil text-children-icon"></i>
-          </p>
-          <p className="text-children">Notes: {note}
-            <i className="fa fa-solid fa-pencil text-children-icon"></i>
-          </p>
+
+          {/* Pour la sélection de catégorie */}
+          <div className="text-children">
+            Category: {modifyCategory ? (
+              <SelectDropdown
+                categoryId={categoryId}
+                currentCategory={currentCategory}
+                onCategoryChange={handleCategoryChange}
+              />
+            ) : (
+              <>
+                {currentCategory} 
+                <i className="fa fa-solid fa-pencil text-children-icon" onClick={() => setModifyCategory(true)} />
+              </>
+            )}
+          </div>
+
+          {/* Pour la note */}
+          <div className="text-children">
+            Notes: {modifyNote ? (
+              <NoteInput 
+                noteId={noteId}
+                // On passe la note actuelle au composant NoteInput
+                initialNote={currentNote}
+                // Avec la fonction de sauvegarde, on capture la nouvelle note
+                onSave={handleSaveNote}
+              />
+            ) : (
+              <>
+                {/* On affiche la note actuelle */}
+                {currentNote} 
+                <i 
+                  className="fa fa-solid fa-pencil text-children-icon"
+                  onClick={() => setModifyNote(true)} 
+                />
+              </>
+            )}
+          </div>
+
         </div>
       </div>
 
@@ -62,14 +117,17 @@ function TransactionDropdown({date, description, amount, balance, type, category
 }
 
 TransactionDropdown.propTypes = {
-    date: PropTypes.string,
-    description: PropTypes.string,
-    amount: PropTypes.string,
-    balance: PropTypes.string,
+  date: PropTypes.string,
+  description: PropTypes.string,
+  amount: PropTypes.string,
+  balance: PropTypes.string,
+  type: PropTypes.string,
 
-    type: PropTypes.string,
-    category: PropTypes.string,
-    note: PropTypes.string,
+  category: PropTypes.string,
+  categoryId: PropTypes.number,
+
+  note: PropTypes.string,
+  noteId: PropTypes.number,
 }
 
 export default TransactionDropdown

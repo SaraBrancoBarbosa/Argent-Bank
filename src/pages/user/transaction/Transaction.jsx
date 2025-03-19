@@ -3,6 +3,7 @@ import TransactionDropdown from "../../../components/transaction-dropdown/Transa
 import "./transaction.css"
 
 function TransactionPage() {
+  
   return (
     <div className="bg-dark container">
 
@@ -28,8 +29,8 @@ function TransactionPage() {
           balance="2082.79"
 
           type="Electronic"
-          category="Food"
-          note="Input"
+          categoryId={1}
+          note=""
         />
 
         <TransactionDropdown
@@ -39,8 +40,8 @@ function TransactionPage() {
           balance="2082.79"
 
           type="Electronic"
-          category="Food"
-          note="Input"
+          categoryId={2}
+          note=""
         />
         
       </section>

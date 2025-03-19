@@ -23,10 +23,12 @@ a:hover {
 }
 
 /***** Variables *****/
+/***** Background used in Login et Profile pages *****/
 .bg-dark {
   background-color: #12002b;
 }
 
+/***** Screen readers only *****/
 .sr-only {
   border: 0;
   clip: rect(1px, 1px, 1px, 1px); /* 1 */
@@ -41,6 +43,7 @@ a:hover {
   white-space: nowrap; /* 3 */
 }
 
+/***** Button *****/
 .button {
   display: inline-block;
   -webkit-transition: all 0.3s;
@@ -86,6 +89,7 @@ a:hover {
   width: 100%;
 }
 
+/***** Breakpoints for responsive design *****/
 .dropdown {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -100,22 +104,37 @@ a:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 60px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
   background-color: #fff;
   position: relative;
   padding-left: 60px;
-  padding-right: 50px;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  /*
-  .dropdown-text {
-      flex: 25%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  gap: 10px;
+}
+@media screen and (min-width: 720px) {
+  .dropdown .dropdown-content {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 60px;
+    padding-right: 50px;
+    padding-top: 0;
+    padding-bottom: 0;
   }
-  */
 }
 .dropdown .dropdown-content .dropdown-icon-down {
   width: 55px;
@@ -127,6 +146,12 @@ a:hover {
   transition: transform 0.35s ease, -webkit-transform 0.35s ease;
   position: absolute;
   left: 0;
+  top: 43px;
+}
+@media screen and (min-width: 720px) {
+  .dropdown .dropdown-content .dropdown-icon-down {
+    top: 19px;
+  }
 }
 .dropdown .dropdown-content .dropdown-icon-up {
   width: 55px;
@@ -140,6 +165,15 @@ a:hover {
   transition: transform 0.35s ease, -webkit-transform 0.35s ease;
   position: absolute;
   left: 0;
+  top: 43px;
+}
+@media screen and (min-width: 720px) {
+  .dropdown .dropdown-content .dropdown-icon-up {
+    top: 19px;
+  }
+}
+.dropdown .dropdown-content .dropdown-text {
+  margin: 0;
 }
 .dropdown .text-parent {
   height: 0px;
@@ -158,18 +192,52 @@ a:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 20px;
-  padding-bottom: 20px;
+  gap: 10px;
+  padding-bottom: 10px;
   text-align: left;
   -webkit-transition: -webkit-transform 0.35s ease;
   transition: -webkit-transform 0.35s ease;
   transition: transform 0.35s ease;
   transition: transform 0.35s ease, -webkit-transform 0.35s ease;
 }
+@media screen and (min-width: 720px) {
+  .dropdown .text {
+    padding-top: 0;
+    padding-bottom: 20px;
+    gap: 20px;
+  }
+}
 .dropdown .text .text-children {
   margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.dropdown .text .text-children select {
+  height: 18px;
+  margin-left: 5px;
+  background-color: #fff;
+  border: solid 2px #00bc77;
+}
+.dropdown .text .text-children form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: 5px;
+  height: 18px;
+}
+.dropdown .text .text-children form .button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1rem;
+  padding: 0 4px;
 }
 .dropdown .text .text-children .text-children-icon {
   font-size: 1.2rem;
   padding-left: 5px;
+  cursor: pointer;
 }/*# sourceMappingURL=transactionDropdown.css.map */
