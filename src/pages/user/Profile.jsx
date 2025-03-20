@@ -28,7 +28,7 @@ function ProfilePage() {
 
           {/* On fait appararaître les inputs à modifier lorsqu'on édite */}
           {isEditing ? (
-            <>
+            <div className="input-div">
               <input
                 type="text"
                 value={firstName}
@@ -39,10 +39,10 @@ function ProfilePage() {
                 value={lastName}
                 onChange={(e) => dispatch(setUserData({ firstName, lastName: e.target.value }))} 
               />
-            </>
+            </div>
           ) : (
             <>
-              {/* Sinon on a le prénom et le nom normalement */}
+              {/* Sinon on a simplement le prénom et le nom */}
               {firstName} {lastName}
             </>
           )}
