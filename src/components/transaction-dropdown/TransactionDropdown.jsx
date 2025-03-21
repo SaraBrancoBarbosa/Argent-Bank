@@ -1,10 +1,8 @@
 import PropTypes from "prop-types"
 import { useEffect, useRef, useState } from "react"
 import "./transactionDropdown.css"
-import NoteInput from "../note-input/NoteInput"
-import SelectDropdown from "../select-dropdown/SelectDropdown"
 
-function TransactionDropdown({ date, description, amount, balance, type, category, categoryId, note, noteId }) {
+function TransactionDropdown({ date, description, amount, balance, type }) {
 
   // To manage the dropdown display
   const [visible, setVisible] = useState(false)
@@ -14,26 +12,6 @@ function TransactionDropdown({ date, description, amount, balance, type, categor
   const toggle = () => {
     //return !current
     setVisible(current => !current)
-  }
-
-  // Pour éditer la catégorie
-  const [modifyCategory, setModifyCategory] = useState(false)
-  const [currentCategory, setCurrentCategory] = useState(category)
-
-  // Pour gérer la fin de l'édition de la catégorie (on "ferme" le dropdown et l'icône crayon revient)
-  const handleCategoryChange = (newCategory) => {
-    setCurrentCategory(newCategory)
-    setModifyCategory(false)
-  }
-
-  // Pour éditer la note
-  const [modifyNote, setModifyNote] = useState(false)
-  // Avec l'état local, on suit la note (actuelle)
-  const [currentNote, setCurrentNote] = useState(note)
-
-  const handleSaveNote = (newNote) => {
-    setCurrentNote(newNote)
-    setModifyNote(false)
   }
 
   useEffect (() => {
@@ -49,7 +27,7 @@ function TransactionDropdown({ date, description, amount, balance, type, categor
         <i 
           alt="Afficher ou cacher le texte"
           onClick={toggle}
-          className={visible ? "fa fa-solid fa-chevron-up dropdown-icon-up" : "fa fa-solid fa-chevron-up dropdown-icon-down"}
+          className={visible ? "fa fa-solid fa-chevron-up dropdown-icon-down" : "fa fa-solid fa-chevron-up dropdown-icon-up"}
         >  
         </i>
         <p className="dropdown-text">{date}</p>
@@ -71,42 +49,14 @@ function TransactionDropdown({ date, description, amount, balance, type, categor
         >
           <p className="text-children">Transaction Type: {type}</p>
 
-          {/* Pour la sélection de catégorie */}
+          {/* Category selection */}
           <div className="text-children">
-            Category: {modifyCategory ? (
-              <SelectDropdown
-                categoryId={categoryId}
-                currentCategory={currentCategory}
-                onCategoryChange={handleCategoryChange}
-              />
-            ) : (
-              <>
-                {currentCategory} 
-                <i className="fa fa-solid fa-pencil text-children-icon" onClick={() => setModifyCategory(true)} />
-              </>
-            )}
+            Category: <i className="fa fa-solid fa-pencil text-children-icon" />
           </div>
 
-          {/* Pour la note */}
+          {/* Notes */}
           <div className="text-children">
-            Notes: {modifyNote ? (
-              <NoteInput 
-                noteId={noteId}
-                // On passe la note actuelle au composant NoteInput
-                initialNote={currentNote}
-                // Avec la fonction de sauvegarde, on capture la nouvelle note
-                onSave={handleSaveNote}
-              />
-            ) : (
-              <>
-                {/* On affiche la note actuelle */}
-                {currentNote} 
-                <i 
-                  className="fa fa-solid fa-pencil text-children-icon"
-                  onClick={() => setModifyNote(true)} 
-                />
-              </>
-            )}
+            Notes: <i className="fa fa-solid fa-pencil text-children-icon" />
           </div>
 
         </div>
@@ -122,12 +72,6 @@ TransactionDropdown.propTypes = {
   amount: PropTypes.string,
   balance: PropTypes.string,
   type: PropTypes.string,
-
-  category: PropTypes.string,
-  categoryId: PropTypes.number,
-
-  note: PropTypes.string,
-  noteId: PropTypes.number,
 }
 
 export default TransactionDropdown
