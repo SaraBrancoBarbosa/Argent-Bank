@@ -2,6 +2,8 @@ import AccountCard from "../../../components/account-card/AccountCard"
 import TransactionDropdown from "../../../components/transaction-dropdown/TransactionDropdown"
 import "./transaction.css"
 
+/***** This page is not yet implemented *****/
+
 function TransactionPage() {
   
   return (
