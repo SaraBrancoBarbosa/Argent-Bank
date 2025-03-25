@@ -1,35 +1,29 @@
-import { useState } from "react"
-import "./login.css"
-import { useDispatch, useSelector } from "react-redux"
-import { login } from "../../redux/userSlice"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router"
+import { useDispatch, useSelector } from "react-redux"
+import { login } from "../../redux/tokenSlice"
+import "./login.css"
 
-/******
-Avec le "Remember me" coché, stocker le token localStorage ?
-Et quand il n'est pas coché, stocker le token dans sessionStorage ?
-Ou stocker le token dans le store ?
-******/
 function LoginPage() {
   
-  // Avec useState, on stocke les valeurs des champs username, password et rememberMe
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const [rememberMe, setRememberMe] = useState(false)
 
-  // redux state
-  const {loading, error} = useSelector((state) => state.user)
+  // Redux state
+  const {loading, error, token} = useSelector((state) => state.token)
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
+  // When submitting the form
   const handleLoginEvent = (event) => {
     event.preventDefault()
-    let userCredentials={
-      username, password
+    const userCredentials={
+      username, password, rememberMe
     }
     dispatch(login(userCredentials)).then((result) => {
-      // si login est fulfilled (userSlice) alors on aura quelque chose à payload
-      // On va clear le formulaire et être redirigé vers la homepage
+      // tokenSlice: if login is fulfilled => payload
       if(result.payload) {
         setUsername("")
         setPassword("")
@@ -37,6 +31,12 @@ function LoginPage() {
       }
     })
   }
+
+  useEffect(() => {
+    if(token) navigate("/profile")
+  },[token, navigate])
+
+  if(token) return <></>
 
   return (
     <div className="sign-in-container bg-dark">
@@ -52,10 +52,8 @@ function LoginPage() {
             <input
               type="text"
               id="username"
-              // La valeur associée à l'état (du useState)
               value={username}
-              //onChange pour mettre à jour cet état dès que l'utilisateur change quelque chose
-              // event contient la valeur actuelle de l'élément
+              // onChange to update the local state
               onChange={(event) => setUsername(event.target.value)}
             />
           </div>
@@ -80,13 +78,12 @@ function LoginPage() {
             <label htmlFor="remember-me">Remember me</label>
           </div>
 
-          {/* Le bouton du fichier HTML de base, changer par un lien ? */}
           <button type="submit" className="button">
             {loading ? "Loading..." : "Sign in"}
           </button>
 
           {error && (
-            <div className="alert" role="alert">{error}</div>
+            <div className="alert" role="alert">Username or password incorrect</div>
           )}
           
         </form>
