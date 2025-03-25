@@ -1,24 +1,55 @@
-import AccountCard from "../../components/account-card/AccountCard"
+import { useEffect, useState } from "react"
+import { useNavigate } from "react-router"
 import { useDispatch, useSelector } from "react-redux"
-import { cancelEdit, setEditing, setUserData } from "../../redux/profileSlice"
+import { editProfile } from "../../redux/profileSlice"
+import AccountCard from "../../components/account-card/AccountCard"
 import "./profile.css"
 
 function ProfilePage() {
 
-  const { firstName, lastName, isEditing } = useSelector((state) => state.profile)
+  const navigate = useNavigate()
   const dispatch = useDispatch()
+  
+  // The authentification token and profile data from the Redux store
+  const { token } = useSelector((state) => state.token)
+  const { firstName, lastName } = useSelector((state) => state.profile)
 
-  // Pour sauvegarder les changements (bouton "save")
+  const [editUser, setEditUser] = useState({firstName, lastName})
+  const [isEditing, setEditing] = useState(false)
+  
+  // To save the names modifications
   const handleSave = () => {
-     // On sauvegarde et on quitte le mode d'édition
-    dispatch(setEditing(false))
+     // To stop the edition mode
+    setEditing(false)
+
+    // To send our Redux action with the updated data and the token
+    dispatch(editProfile({
+      ...editUser,
+      token
+    }))
   }
 
-  // Pour annuler les modifications (bouton "cancel")
+  // To cancel the modifications
   const handleCancel = () => {
-    dispatch(cancelEdit())
+    setEditing(false)
   }
 
+  // To always get the updated names
+  useEffect(() => {
+    setEditUser({
+      firstName, lastName
+    })
+  },[firstName, lastName])
+
+  // If the user isn't authentified, then => login page
+  useEffect( () => {
+    if(!token) {
+      navigate("/login")
+    }
+  }, [token, navigate])
+  
+  if(!token) return <></>
+  
   return (
     <div className="user-container bg-dark">
 
@@ -26,37 +57,32 @@ function ProfilePage() {
         <h1>
           Welcome back<br />
 
-          {/* On fait appararaître les inputs à modifier lorsqu'on édite */}
+          {/* To display the inputs when editing */}
           {isEditing ? (
             <div className="input-div">
               <input
                 type="text"
-                value={firstName}
-                onChange={(e) => dispatch(setUserData({ firstName: e.target.value, lastName }))} 
+                // Current value of firstname (from the Redux store). If firstName is null/undefined => empty string
+                value={editUser.firstName ?? ""}
+                // Everytime a user change the input, the local state "editUser" is updated with the new value
+                onChange={(e) => setEditUser(prevState => ({ ...prevState, firstName: e.target.value }))}
               />
               <input
                 type="text"
-                value={lastName}
-                onChange={(e) => dispatch(setUserData({ firstName, lastName: e.target.value }))} 
+                value={editUser.lastName ?? ""}
+                onChange={(e) => setEditUser(prevState => ({ ...prevState, lastName: e.target.value }))}
               />
             </div>
           ) : (
             <>
-              {/* Sinon on a simplement le prénom et le nom */}
+              {/* To simply display the names (default state) */}
               {firstName} {lastName}
             </>
           )}
         </h1>
 
-        {/* Le bouton s'affiche uniquement lorsqu'on n'est pas en mode édition */}
-        {!isEditing && (
-          <button className="button" onClick={() => dispatch(setEditing(true))}>
-            Edit name
-          </button>
-        )}
-
-        {/* Lorsqu'on édite les prénom/nom, les deux boutons Save et Cancel apparaissent */}
-        {isEditing && (
+        {/* To display the buttons acording to the editing state */}
+        {isEditing ? (
           <div className="buttons-container">
             <button className="button" onClick={handleSave}>
               Save
@@ -65,7 +91,12 @@ function ProfilePage() {
               Cancel
             </button>
           </div>
-        )}
+        ) : (
+          <button className="button" onClick={() => setEditing(true)}>
+            Edit name
+          </button>
+        )
+      }
 
       </div>
 
@@ -98,5 +129,3 @@ function ProfilePage() {
 }
 
 export default ProfilePage
-
-
