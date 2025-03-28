@@ -45,8 +45,7 @@ export const editProfile = createAsyncThunk(
                 throw new Error(`HTTP error! Status: ${response.status}`)
             }
 
-            const data = await response.json()
-            console.log(data)
+            await response.json()
 
             return profile
             
