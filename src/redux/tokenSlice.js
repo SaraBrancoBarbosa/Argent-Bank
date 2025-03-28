@@ -1,7 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 
-// Local storage token assigned to tokenLS if it exists
+// To get the token from the localStorage or the sessionStorage
 const tokenLS = localStorage.getItem("token") ?? null
+const tokenSS = sessionStorage.getItem("token") ?? null
 
 export const login = createAsyncThunk(
     "user/login",
@@ -45,7 +46,8 @@ const tokenSlice = createSlice({
     name: "token",
     initialState: {
         loading: false,
-        token: tokenLS,
+        // Priority given to sessionStorage, then localStorage
+        token: tokenSS ?? tokenLS,
         error: null
     },
     // To add reducers outside of the slice
