@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { getProfile } from "../../redux/profileSlice"
+import { clearToken } from "../../redux/tokenSlice"
 import "./header.css"
 
 function Header() {
@@ -16,6 +17,8 @@ function Header() {
         e.preventDefault()
         window.localStorage.clear()
         window.sessionStorage.clear()
+        // To reinitialise the Redux token
+        dispatch(clearToken())
         window.location.href="/"
     }
 

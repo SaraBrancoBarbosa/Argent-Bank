@@ -50,6 +50,15 @@ const tokenSlice = createSlice({
         token: tokenSS ?? tokenLS,
         error: null
     },
+    reducers: {
+        // To explicitly manipulate the token
+        setToken: (state, action) => {
+            state.token = action.payload
+        },
+        clearToken: (state) => {
+            state.token = null
+        }
+    },
     // To add reducers outside of the slice
     extraReducers:(builder) => {
         builder.addCase(login.pending,(state) => {
@@ -74,5 +83,7 @@ const tokenSlice = createSlice({
         })
     }
 })
+
+export const { setToken, clearToken } = tokenSlice.actions
 
 export default tokenSlice
