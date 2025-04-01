@@ -81,6 +81,6 @@ const tokenSlice = createSlice({
     }
 })
 
-export const { setToken, clearToken } = tokenSlice.actions
+export const { clearToken } = tokenSlice.actions
 
 export default tokenSlice
