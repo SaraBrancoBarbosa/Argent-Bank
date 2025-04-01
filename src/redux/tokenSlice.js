@@ -51,10 +51,7 @@ const tokenSlice = createSlice({
         error: null
     },
     reducers: {
-        // To explicitly manipulate the token
-        setToken: (state, action) => {
-            state.token = action.payload
-        },
+        // To explicitly clear the token
         clearToken: (state) => {
             state.token = null
         }
