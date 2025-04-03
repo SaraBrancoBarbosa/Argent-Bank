@@ -22,14 +22,7 @@ function LoginPage() {
     const userCredentials={
       username, password, rememberMe
     }
-    dispatch(login(userCredentials)).then((result) => {
-      // tokenSlice: if login is fulfilled => payload
-      if(result.payload) {
-        setUsername("")
-        setPassword("")
-        navigate("/profile")
-      }
-    })
+    dispatch(login(userCredentials))
   }
 
   useEffect(() => {
