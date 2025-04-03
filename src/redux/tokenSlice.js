@@ -1,8 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 
 // To get the token from the localStorage or the sessionStorage
-const tokenLS = localStorage.getItem("token") ?? null
-const tokenSS = sessionStorage.getItem("token") ?? null
+const storedToken = localStorage.getItem("token") ?? sessionStorage.getItem("token") ?? null
 
 export const login = createAsyncThunk(
     "user/login",
@@ -28,13 +27,7 @@ export const login = createAsyncThunk(
             // To get the token
             const token = data.body?.token
 
-            if(userCredentials.rememberMe) {
-                // If "Remember me" is checked
-                localStorage.setItem("token", token)
-            } 
-            sessionStorage.setItem("token", token)
-
-            return token
+            return { token, rememberMe:userCredentials.rememberMe}
             
         } catch (error) {
             throw new Error(error.message)
@@ -46,14 +39,15 @@ const tokenSlice = createSlice({
     name: "token",
     initialState: {
         loading: false,
-        // Priority given to sessionStorage, then localStorage
-        token: tokenSS ?? tokenLS,
+        token: storedToken,
         error: null
     },
     reducers: {
-        // To explicitly clear the token
-        clearToken: (state) => {
+        // To clear the token
+        logOut: (state) => {
             state.token = null
+            localStorage.removeItem("token")
+            sessionStorage.removeItem("token")
         }
     },
     // To add reducers outside of the slice
@@ -65,8 +59,13 @@ const tokenSlice = createSlice({
         })
         .addCase(login.fulfilled, (state, action) => {
             state.loading = false
-            state.token = action.payload
+            state.token = action.payload.token
             state.error = null
+            // To add the token to the right storage according to "Remember me"
+            if(action.payload.rememberMe) {
+                localStorage.setItem("token", action.payload.token)
+            }
+            sessionStorage.setItem("token", action.payload.token)
         })
         .addCase(login.rejected, (state, action) => {
             state.loading = false
@@ -81,6 +80,6 @@ const tokenSlice = createSlice({
     }
 })
 
-export const { clearToken } = tokenSlice.actions
+export const { logOut } = tokenSlice.actions
 
 export default tokenSlice
