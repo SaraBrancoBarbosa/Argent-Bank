@@ -17,6 +17,7 @@ export const getProfile = createAsyncThunk(
 
             const data = await response.json()
 
+            // Return the body to get the firstname and lastname
             return data.body
             
         } catch (error) {
@@ -58,6 +59,7 @@ export const editProfile = createAsyncThunk(
 const profileSlice = createSlice({
     name: "profile",
     initialState: {
+        // Null to avoid errors
         firstName: null,
         lastName: "",
     },
@@ -98,7 +100,5 @@ const profileSlice = createSlice({
         })
     }
 })
-
-export const { setEditing, setUserData, cancelEdit } = profileSlice.actions
 
 export default profileSlice
