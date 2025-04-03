@@ -11,7 +11,7 @@ function AccountCard({title, amount, description}) {
           <p className="account-amount-description">{description}</p>
         </div>
         <Link to="transaction">
-          <button className="button">View transactions</button>
+          <button type="button" className="button">View transactions</button>
         </Link>
     </section>
   )

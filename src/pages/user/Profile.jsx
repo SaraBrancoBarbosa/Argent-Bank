@@ -84,15 +84,15 @@ function ProfilePage() {
         {/* To display the buttons acording to the editing state */}
         {isEditing ? (
           <div className="buttons-container">
-            <button className="button" onClick={handleSave}>
+            <button type="button" className="button" onClick={handleSave}>
               Save
             </button>
-            <button className="button" onClick={handleCancel}>
+            <button type="button" className="button" onClick={handleCancel}>
               Cancel
             </button>
           </div>
         ) : (
-          <button className="button" onClick={() => setEditing(true)}>
+          <button type="button" className="button" onClick={() => setEditing(true)}>
             Edit name
           </button>
         )
