@@ -9,6 +9,7 @@ Mais elle propose surtout un système de transactions efficace.
 - React (Vite)
 - Router
 - Sass
+- Redux Toolkit
 
 ## L'installation du projet
 ### Les prérequis
