@@ -36,3 +36,13 @@ Clôner ce repo puis installez les dépendances : <br>
 
 Lancer le _front-end_ en vous positionnant dans le dossier : <br>
 `npm run dev`
+
+## Visuels du projet
+### Homepage
+![Homepage.](/argent-bank/public/assets/screenshots/homepage.png)
+
+### Page de connexion
+![Page de connexion.](/argent-bank/public/assets/screenshots/signin.png)
+
+### Page du profil
+![Page du profil.](/argent-bank/public/assets/screenshots/profile.png)
