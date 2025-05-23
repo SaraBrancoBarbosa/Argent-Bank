@@ -39,10 +39,10 @@ Lancer le _front-end_ en vous positionnant dans le dossier : <br>
 
 ## Visuels du projet
 ### Homepage
-![Homepage.](/argent-bank/public/assets/screenshots/homepage.png)
+![Homepage.](/public/assets/screenshots/homepage.png)
 
 ### Page de connexion
-![Page de connexion.](/argent-bank/public/assets/screenshots/signin.png)
+![Page de connexion.](/public/assets/screenshots/signin.png)
 
 ### Page du profil
-![Page du profil.](/argent-bank/public/assets/screenshots/profile.png)
+![Page du profil.](/public/assets/screenshots/profile.png)
